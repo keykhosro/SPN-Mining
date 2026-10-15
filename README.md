@@ -17,6 +17,22 @@ No RSAT. No exploitation. Just a single LDAP read from any domain-joined machine
 
 ---
 
+## Quick Start
+
+start with these three commands:
+
+```powershell
+# Get all SPNs (full audit, no filtering)
+.\Get-AllADSPNServices.ps1 -GetAllSPNs -OutputPath "testspn.csv"
+
+# Get filtered, useful SPNs (drops many noises)
+.\Get-AllADSPNServices.ps1 -ExcludeDefaultNoise -OutputPath "testspn.csv"
+
+# Same as above, but skip stale/decommissioned OU trees (add any OU tree you don't need)
+.\Get-AllADSPNServices.ps1 -ExcludeDefaultNoise `
+    -FilterOU UNUSED,DISABLEDCOMPUTERS,UNUSEDCOMPUTERS `
+    -OutputPath "testspn.csv"
+
 ## Tiers
 
 Every SPN is assigned to one of four tiers based on what the service class tells you about the object.
