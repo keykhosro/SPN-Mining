@@ -32,7 +32,7 @@ start with these three commands:
 .\Get-AllADSPNServices.ps1 -ExcludeDefaultNoise `
     -FilterOU UNUSED,DISABLEDCOMPUTERS,UNUSEDCOMPUTERS `
     -OutputPath "testspn.csv"
-
+```
 ---
 
 ## Tiers
